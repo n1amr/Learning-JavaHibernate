@@ -21,8 +21,9 @@ public class HibernateTest {
 
 		session.beginTransaction();
 
-		for (int i = 0; i < count; i++)
-			session.save(users[i]);
+//		for (int i = 0; i < count; i++)
+//			session.update(users[i]);
+		session.delete(users[2]);
 
 		session.getTransaction().commit();
 	}
