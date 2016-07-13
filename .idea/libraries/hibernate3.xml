@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="hibernate3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../Hibernate/Hibernate/hibernate3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Hibernate/Hibernate/commons-collections-3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Hibernate/Hibernate/hibernate-jpa-2.0-api-1.0.1.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Hibernate/Hibernate/slf4j-api-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Hibernate/Hibernate/dom4j-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Hibernate/Hibernate/antlr-2.7.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Hibernate/Hibernate/jta-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Hibernate/Hibernate/mysql-connector-java-5.1.29-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Hibernate/Hibernate/javassist-3.12.0.GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Hibernate/Hibernate/ojdbc6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
