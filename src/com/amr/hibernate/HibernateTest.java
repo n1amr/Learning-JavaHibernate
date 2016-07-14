@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 import java.util.Date;
 
 public class HibernateTest {
-	public static void main(String[] args) {
+	public static void main (String[] args) {
 		int count = 5;
 		UserDetails[] users = new UserDetails[count];
 		for (int i = 0; i < count; i++) {
