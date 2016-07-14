@@ -13,7 +13,7 @@ public class HibernateTest {
 		for (int i = 0; i < count; i++) {
 			users[i] = new UserDetails();
 			users[i].setUserId(i + 1);
-			users[i].setUserName("Updated Amr Alaa " + new Date() + (i + 1));
+			users[i].setUserName("Amr Alaa " + new Date() + (i + 1));
 		}
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -21,9 +21,9 @@ public class HibernateTest {
 
 		session.beginTransaction();
 
-//		for (int i = 0; i < count; i++)
-//			session.update(users[i]);
-		session.delete(users[2]);
+		for (int i = 0; i < count; i++)
+			session.save(users[i]);
+//		session.delete(users[2]);
 
 		session.getTransaction().commit();
 	}
