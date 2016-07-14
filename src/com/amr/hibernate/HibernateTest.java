@@ -7,24 +7,26 @@ import org.hibernate.cfg.Configuration;
 import java.util.Date;
 
 public class HibernateTest {
-	public static void main (String[] args) {
-		int count = 5;
-		UserDetails[] users = new UserDetails[count];
-		for (int i = 0; i < count; i++) {
-			users[i] = new UserDetails();
-			users[i].setUserId(i + 1);
-			users[i].setUserName("Amr Alaa " + new Date() + (i + 1));
-		}
+	public static void main(String[] args) {
+		User user = new User(1, "Amr Alaa", new Date(), "address", "description");
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
-
 		session.beginTransaction();
 
-		for (int i = 0; i < count; i++)
-			session.save(users[i]);
-//		session.delete(users[2]);
+		session.save(user);
 
 		session.getTransaction().commit();
+		session.close();
+		session = null;
+
+		user = null;
+
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		user = (User) session.get(User.class, 1);
+		System.out.println(user.getUserName());
+		session.close();
+
 	}
 }
