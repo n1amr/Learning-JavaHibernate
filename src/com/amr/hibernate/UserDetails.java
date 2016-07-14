@@ -8,12 +8,10 @@ import javax.persistence.Id;
 @Entity(name = "amr_user")
 public class UserDetails {
 
-	@Id
-	@Column(name = "id")
 	private int userId;
-	@Column(name = "name")
 	private String userName;
 
+	@Column(name = "name")
 	public String getUserName () {
 		return userName;
 	}
@@ -22,6 +20,8 @@ public class UserDetails {
 		this.userName = userName;
 	}
 
+	@Id
+	@Column(name = "id")
 	public int getUserId () {
 		return userId;
 	}
