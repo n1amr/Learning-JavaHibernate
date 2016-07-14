@@ -1,7 +1,5 @@
 package com.amr.hibernate.entities;
 
-import com.amr.hibernate.entities.Address;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,7 +10,8 @@ public class User {
 	private int userId;
 	private String userName;
 	private Date joinedDate;
-	private Address address;
+	private Address homeAddress;
+	private Address workAddress;
 	private String description;
 
 	public User() {
@@ -22,7 +21,7 @@ public class User {
 		this.userId = userId;
 		this.userName = userName;
 		this.joinedDate = joinedDate;
-		this.address = address;
+		this.homeAddress = address;
 		this.description = description;
 	}
 
@@ -56,13 +55,30 @@ public class User {
 	}
 
 	@Embedded
-	public Address getAddress() {
-		return address;
+	public Address getHomeAddress() {
+		return homeAddress;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setHomeAddress(Address address) {
+		this.homeAddress = address;
 	}
+
+
+	@Embedded
+	@AttributeOverrides({
+		@AttributeOverride(name = "city", column = @Column(name = "work_city")),
+		@AttributeOverride(name = "pinCode", column = @Column(name = "work_pinCode")),
+		@AttributeOverride(name = "state", column = @Column(name = "work_state")),
+		@AttributeOverride(name = "street", column = @Column(name = "work_street")),
+	})
+	public Address getWorkAddress() {
+		return workAddress;
+	}
+
+	public void setWorkAddress(Address workAddress) {
+		this.workAddress = workAddress;
+	}
+
 
 	@Lob
 	public String getDescription() {
