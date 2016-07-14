@@ -2,32 +2,32 @@ package com.amr.hibernate.entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
-@Entity(name = "amr_user")
+@Entity(name = "amr_users")
 public class User {
 
 	private int userId;
 	private String userName;
 	private Date joinedDate;
-	private Address homeAddress;
-	private Address workAddress;
 	private String description;
+	private Set<Address> addresses = new HashSet<>();
 
 	public User() {
 	}
 
-	public User(int userId, String userName, Date joinedDate, Address address, String description) {
+	public User(int userId, String userName, Date joinedDate) {
 		this.userId = userId;
 		this.userName = userName;
 		this.joinedDate = joinedDate;
-		this.homeAddress = address;
 		this.description = description;
 	}
 
 	@Id
 	@Column(name = "id")
-	@GeneratedValue
+
 	public int getUserId() {
 		return userId;
 	}
@@ -54,31 +54,6 @@ public class User {
 		this.joinedDate = joinedDate;
 	}
 
-	@Embedded
-	public Address getHomeAddress() {
-		return homeAddress;
-	}
-
-	public void setHomeAddress(Address address) {
-		this.homeAddress = address;
-	}
-
-
-	@Embedded
-	@AttributeOverrides({
-		@AttributeOverride(name = "city", column = @Column(name = "work_city")),
-		@AttributeOverride(name = "pinCode", column = @Column(name = "work_pinCode")),
-		@AttributeOverride(name = "state", column = @Column(name = "work_state")),
-		@AttributeOverride(name = "street", column = @Column(name = "work_street")),
-	})
-	public Address getWorkAddress() {
-		return workAddress;
-	}
-
-	public void setWorkAddress(Address workAddress) {
-		this.workAddress = workAddress;
-	}
-
 
 	@Lob
 	public String getDescription() {
@@ -89,4 +64,13 @@ public class User {
 		this.description = description;
 	}
 
+
+	@ElementCollection
+	public Set<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(Set<Address> addresses) {
+		this.addresses = addresses;
+	}
 }
