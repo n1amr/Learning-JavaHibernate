@@ -1,4 +1,6 @@
-package com.amr.hibernate;
+package com.amr.hibernate.entities;
+
+import com.amr.hibernate.entities.Address;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,22 +12,23 @@ public class User {
 	private int userId;
 	private String userName;
 	private Date joinedDate;
-	private String Address;
+	private Address address;
 	private String description;
 
 	public User() {
 	}
 
-	public User(int userId, String userName, Date joinedDate, String address, String description) {
+	public User(int userId, String userName, Date joinedDate, Address address, String description) {
 		this.userId = userId;
 		this.userName = userName;
 		this.joinedDate = joinedDate;
-		this.Address = address;
+		this.address = address;
 		this.description = description;
 	}
 
 	@Id
 	@Column(name = "id")
+	@GeneratedValue
 	public int getUserId() {
 		return userId;
 	}
@@ -52,12 +55,13 @@ public class User {
 		this.joinedDate = joinedDate;
 	}
 
-	public String getAddress() {
-		return Address;
+	@Embedded
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAddress(String address) {
-		Address = address;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Lob
