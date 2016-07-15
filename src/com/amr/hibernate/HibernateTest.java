@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.util.Date;
+import java.util.Set;
 
 public class HibernateTest {
 	public static void main(String[] args) {
@@ -23,22 +24,15 @@ public class HibernateTest {
 
 		session.getTransaction().commit();
 		session.close();
-		session = null;
-
-		user = null;
-		address = null;
 
 		session = sessionFactory.openSession();
-		session.beginTransaction();
-
 		user = (User) session.get(User.class, 1);
-		System.out.println(user.getUserName());
+		Set<Address> addresses = user.getAddresses();
 
-		address = (Address) user.getAddresses().toArray()[0];
+		System.out.println(addresses.size());
+		address = (Address) addresses.toArray()[0];
 		System.out.println(address.getCity());
-
 		session.close();
-
 
 	}
 }

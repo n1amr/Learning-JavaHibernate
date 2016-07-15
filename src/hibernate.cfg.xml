@@ -30,17 +30,26 @@
 
 	<session-factory>
 
+		<!--&lt;!&ndash; Database connection settings &ndash;&gt;-->
+		<!--<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>-->
+		<!--<property name="connection.url">jdbc:oracle:thin:@192.168.1.44:1521:FGO</property>-->
+		<!--<property name="connection.username">TEST</property>-->
+		<!--<property name="connection.password">TEST</property>-->
+
+		<!--&lt;!&ndash; SQL dialect &ndash;&gt;-->
+		<!--<property name="dialect">org.hibernate.dialect.OracleDialect</property>-->
+
 		<!-- Database connection settings -->
-		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-		<property name="connection.url">jdbc:oracle:thin:@192.168.1.44:1521:FGO</property>
-		<property name="connection.username">TEST</property>
-		<property name="connection.password">TEST</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/testdb</property>
+		<property name="connection.username">testuser</property>
+		<property name="connection.password">test</property>
+
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
 		<!-- JDBC connection pool (use the built-in) -->
 		<property name="connection.pool_size">1</property>
-
-		<!-- SQL dialect -->
-		<property name="dialect">org.hibernate.dialect.OracleDialect</property>
 
 		<!-- Disable the second-level cache  -->
 		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
@@ -53,6 +62,7 @@
 
 		<!-- Names the annotated entity class -->
 		<mapping class="com.amr.hibernate.entities.User"/>
+		<mapping class="com.amr.hibernate.entities.Address"/>
 
 	</session-factory>
 

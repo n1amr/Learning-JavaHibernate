@@ -6,5 +6,15 @@
       <first-sync>true</first-sync>
       <user-name>TEST</user-name>
     </data-source>
+    <data-source name="Sqlite (Xerial) - local-db.sqlite" uuid="e28b79fd-28d8-442f-929c-4f1167575804">
+      <secret-storage>master_key</secret-storage>
+      <auth-required>false</auth-required>
+    </data-source>
+    <data-source name="MySQL - testdb@localhost" uuid="d7f52cda-87ff-4a99-9c73-2c8963738097">
+      <secret-storage>master_key</secret-storage>
+      <user-name>testuser</user-name>
+      <introspection-scope>testdb:</introspection-scope>
+      <resolve-scope>testdb:</resolve-scope>
+    </data-source>
   </component>
 </project>

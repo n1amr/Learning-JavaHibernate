@@ -3,4 +3,71 @@
   <data-source name="Oracle - @192.168.1.44" uuid="98ace0bd-0ecf-4636-9f3c-34ca4e44781e">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source name="Sqlite (Xerial) - local-db.sqlite" uuid="e28b79fd-28d8-442f-929c-4f1167575804">
+    <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+      <schema id="1">
+        <visible>1</visible>
+      </schema>
+    </database-model>
+  </data-source>
+  <data-source name="MySQL - testdb@localhost" uuid="d7f52cda-87ff-4a99-9c73-2c8963738097">
+    <database-info product="MySQL" version="5.7.12-0ubuntu1.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+      <schema id="1" name="testdb">
+        <visible>1</visible>
+      </schema>
+      <schema id="2" name="information_schema"/>
+      <table id="3" parent="1" name="User_addresses"/>
+      <table id="4" parent="1" name="amr_users"/>
+      <column id="5" parent="3" name="User_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="6" parent="3" name="city">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="7" parent="3" name="pinCode">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="8" parent="3" name="state">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="9" parent="3" name="street">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <index id="10" parent="3" name="FK55CF2C4EC07AF856">
+        <columns>User_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <foreign-key id="11" parent="3" name="FK55CF2C4EC07AF856">
+        <columns>User_id</columns>
+        <ref-key>~.amr_users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="12" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="13" parent="4" name="description">
+        <data-type>longtext|0</data-type>
+      </column>
+      <column id="14" parent="4" name="joinedDate">
+        <data-type>date|0</data-type>
+      </column>
+      <column id="15" parent="4" name="name">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <key id="16" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
 </component>
