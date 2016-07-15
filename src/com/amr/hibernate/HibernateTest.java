@@ -2,6 +2,7 @@ package com.amr.hibernate;
 
 import com.amr.hibernate.entities.Address;
 import com.amr.hibernate.entities.User;
+import com.amr.hibernate.entities.Vehicle;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
