@@ -1,9 +1,9 @@
-package com.amr.hibernate;
+package com.amr.learn.hibernate;
 
-import com.amr.hibernate.entities.Address;
-import com.amr.hibernate.entities.Item;
-import com.amr.hibernate.entities.User;
-import com.amr.hibernate.entities.Vehicle;
+import com.amr.learn.hibernate.entities.Address;
+import com.amr.learn.hibernate.entities.Item;
+import com.amr.learn.hibernate.entities.User;
+import com.amr.learn.hibernate.entities.Vehicle;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
-public class HibernateTest {
+public class Main {
 	public static void main(String[] args) {
 		Address address = new Address("street", "city", "state", "pincode");
 		Vehicle vehicle = new Vehicle("vehicle2");

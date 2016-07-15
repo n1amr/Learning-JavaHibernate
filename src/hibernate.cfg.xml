@@ -61,10 +61,10 @@
 		<property name="hbm2ddl.auto">create</property>
 
 		<!-- Names the annotated entity class -->
-		<mapping class="com.amr.hibernate.entities.User"/>
-		<mapping class="com.amr.hibernate.entities.Vehicle"/>
-		<mapping class="com.amr.hibernate.entities.Item"/>
-		<mapping class="com.amr.hibernate.entities.Address"/>
+		<mapping class="com.amr.learn.hibernate.entities.User"/>
+		<mapping class="com.amr.learn.hibernate.entities.Vehicle"/>
+		<mapping class="com.amr.learn.hibernate.entities.Item"/>
+		<mapping class="com.amr.learn.hibernate.entities.Address"/>
 
 	</session-factory>
 
