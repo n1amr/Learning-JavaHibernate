@@ -1,13 +1,12 @@
 package com.amr.hibernate.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "amr_items")
 public class Item {
 	private int id;
 	private String name;
+	private User owner;
 
 	public Item() {
 	}
@@ -32,5 +31,14 @@ public class Item {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	public User getOwner() {
+		return owner;
+	}
+
+	public void setOwner(User owner) {
+		this.owner = owner;
 	}
 }

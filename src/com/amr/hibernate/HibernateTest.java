@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
@@ -18,9 +19,13 @@ public class HibernateTest {
 		User user = new User(1, "Amr Alaa", new Date());
 		user.getAddresses().add(address);
 		user.setVehicle(vehicle);
-		user.getItems().add(new Item("item1"));
-		user.getItems().add(new Item("item2"));
-
+		Item item;
+		Collection<Item> items = user.getItems();
+		for (int i = 1; i <= 5; i++) {
+			item = new Item("Item #" + i);
+			item.setOwner(user);
+			items.add(item);
+		}
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
@@ -46,8 +51,12 @@ public class HibernateTest {
 		System.out.println("\nUser has vehicle: " + vehicle.getName());
 
 		System.out.println("\nUser has " + user.getItems().size() + " items:");
-		for (Item item : user.getItems())
-			System.out.println(item.getName());
+		for (Item item1 : user.getItems())
+			System.out.println(item1.getName());
+
+		item = (Item) session.get(Item.class, 2);
+		System.out.print("Item 2 (" + item.getName() + ")");
+		System.out.println("'s owner is " + item.getOwner().getUserName());
 
 		session.close();
 
