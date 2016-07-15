@@ -28,6 +28,12 @@ public class HibernateTest {
 
 			User user1 = new User("User #" + i, new Date());
 			user.getFollowing().add(user1);
+
+			Vehicle vehicle1 = new Vehicle("Vehicle #" + i);
+			user.getRentedVehicles().add(vehicle1);
+			vehicle1.getRentingUsers().add(user);
+			user1.getRentedVehicles().add(vehicle1);
+			vehicle1.getRentingUsers().add(user1);
 		}
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -65,6 +71,18 @@ public class HibernateTest {
 		System.out.println("\nUser is following " + following.size() + " users");
 		for (User user1 : following)
 			System.out.println(user1.getUserName());
+
+		Collection<Vehicle> rentedVehicles = user.getRentedVehicles();
+		System.out.println("\nUser rented " + rentedVehicles.size() + " vehicles");
+		for (Vehicle vehicle1 : rentedVehicles)
+			System.out.println(vehicle1.getName());
+
+		vehicle = (Vehicle) session.get(Vehicle.class, 4);
+		Collection<User> rentingUsers = vehicle.getRentingUsers();
+		System.out.println("\nVehicle 4 (" + vehicle.getName() + ") is rented by " + rentingUsers.size() + " users");
+		for (User user1 : rentingUsers)
+			System.out.println(user1.getUserName());
+
 
 		session.close();
 	}

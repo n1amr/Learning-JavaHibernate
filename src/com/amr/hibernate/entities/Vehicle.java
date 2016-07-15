@@ -1,14 +1,15 @@
 package com.amr.hibernate.entities;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.HashSet;
 
 @Entity(name = "amr_vehicles")
 public class Vehicle {
 	private int id;
 	private String name;
+	private Collection<User> rentingUsers = new HashSet<>();
 
 	public Vehicle() {
 	}
@@ -33,5 +34,14 @@ public class Vehicle {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	public Collection<User> getRentingUsers() {
+		return rentingUsers;
+	}
+
+	public void setRentingUsers(Collection<User> rentingUsers) {
+		this.rentingUsers = rentingUsers;
 	}
 }

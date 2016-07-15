@@ -15,6 +15,7 @@ public class User {
 	private Vehicle vehicle;
 	private Collection<Item> items = new ArrayList<>();
 	private Collection<User> following = new HashSet<>();
+	private Collection<Vehicle> rentedVehicles = new HashSet<>();
 
 	public User() {
 	}
@@ -103,5 +104,19 @@ public class User {
 
 	public void setFollowing(Collection<User> following) {
 		this.following = following;
+	}
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(
+		name = "amr_users_vehicles",
+		joinColumns = @JoinColumn(name = "user_id"),
+		inverseJoinColumns = @JoinColumn(name = "vehicle_id")
+	)
+	public Collection<Vehicle> getRentedVehicles() {
+		return rentedVehicles;
+	}
+
+	public void setRentedVehicles(Collection<Vehicle> rentedVehicles) {
+		this.rentedVehicles = rentedVehicles;
 	}
 }
