@@ -66,6 +66,7 @@ public class User {
 
 
 	@ElementCollection
+	@CollectionTable(name = "amr_users_addresses")
 	public Set<Address> getAddresses() {
 		return addresses;
 	}
