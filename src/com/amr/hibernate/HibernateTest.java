@@ -59,6 +59,5 @@ public class HibernateTest {
 		System.out.println("'s owner is " + item.getOwner().getUserName());
 
 		session.close();
-
 	}
 }

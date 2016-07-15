@@ -64,6 +64,7 @@
 		<mapping class="com.amr.hibernate.entities.User"/>
 		<mapping class="com.amr.hibernate.entities.Vehicle"/>
 		<mapping class="com.amr.hibernate.entities.Item"/>
+		<mapping class="com.amr.hibernate.entities.Address"/>
 
 	</session-factory>
 
