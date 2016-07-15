@@ -12,9 +12,10 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
+@SuppressWarnings("WeakerAccess")
 public class Main {
 	public static void main(String[] args) {
-		Address address = new Address("street", "city", "state", "pincode");
+		Address address = new Address("street", "city", "state", "pin code");
 		Vehicle vehicle = new Vehicle("vehicle2");
 		User user = new User("Amr Alaa", new Date());
 		user.getAddresses().add(address);
@@ -27,6 +28,8 @@ public class Main {
 			items.add(item);
 
 			User user1 = new User("User #" + i, new Date());
+			address = new Address("street" + i, "city" + i, "state" + i, "pin code" + i);
+			user.getAddresses().add(address);
 			user.getFollowing().add(user1);
 
 			Vehicle vehicle1 = new Vehicle("Vehicle #" + i);
