@@ -14,15 +14,14 @@ public class User {
 	private Set<Address> addresses = new HashSet<>();
 	private Vehicle vehicle;
 	private Collection<Item> items = new ArrayList<>();
+	private Collection<User> following = new HashSet<>();
 
 	public User() {
 	}
 
-	public User(int userId, String userName, Date joinedDate) {
-		this.userId = userId;
+	public User(String userName, Date joinedDate) {
 		this.userName = userName;
 		this.joinedDate = joinedDate;
-		this.description = description;
 	}
 
 	@Id
@@ -95,5 +94,19 @@ public class User {
 
 	public void setItems(Collection<Item> items) {
 		this.items = items;
+	}
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(
+		name = "amr_users_following",
+		joinColumns = @JoinColumn(name = "user_id"),
+		inverseJoinColumns = @JoinColumn(name = "following_user_id")
+	)
+	public Collection<User> getFollowing() {
+		return following;
+	}
+
+	public void setFollowing(Collection<User> following) {
+		this.following = following;
 	}
 }

@@ -16,7 +16,7 @@ public class HibernateTest {
 	public static void main(String[] args) {
 		Address address = new Address("street", "city", "state", "pincode");
 		Vehicle vehicle = new Vehicle("vehicle2");
-		User user = new User(1, "Amr Alaa", new Date());
+		User user = new User("Amr Alaa", new Date());
 		user.getAddresses().add(address);
 		user.setVehicle(vehicle);
 		Item item;
@@ -25,6 +25,9 @@ public class HibernateTest {
 			item = new Item("Item #" + i);
 			item.setOwner(user);
 			items.add(item);
+
+			User user1 = new User("User #" + i, new Date());
+			user.getFollowing().add(user1);
 		}
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -55,8 +58,13 @@ public class HibernateTest {
 			System.out.println(item1.getName());
 
 		item = (Item) session.get(Item.class, 2);
-		System.out.print("Item 2 (" + item.getName() + ")");
+		System.out.print("\nItem 2 (" + item.getName() + ")");
 		System.out.println("'s owner is " + item.getOwner().getUserName());
+
+		Collection<User> following = user.getFollowing();
+		System.out.println("\nUser is following " + following.size() + " users");
+		for (User user1 : following)
+			System.out.println(user1.getUserName());
 
 		session.close();
 	}
