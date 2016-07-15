@@ -52,7 +52,7 @@ public class Main {
 		session = sessionFactory.openSession();
 
 		user = (User) session.get(User.class, 1);
-		System.out.println("Retrieved user 1 (" + user.getUserName() + ")");
+		System.out.println("Retrieved user 1 (" + user.getName() + ")");
 		Set<Address> addresses = user.getAddresses();
 
 		System.out.println("\nUser has " + addresses.size() + " addresses:");
@@ -68,12 +68,12 @@ public class Main {
 
 		item = (Item) session.get(Item.class, 2);
 		System.out.print("\nItem 2 (" + item.getName() + ")");
-		System.out.println("'s owner is " + item.getOwner().getUserName());
+		System.out.println("'s owner is " + item.getOwner().getName());
 
 		Collection<User> following = user.getFollowing();
 		System.out.println("\nUser is following " + following.size() + " users");
 		for (User user1 : following)
-			System.out.println(user1.getUserName());
+			System.out.println(user1.getName());
 
 		Collection<Vehicle> rentedVehicles = user.getRentedVehicles();
 		System.out.println("\nUser rented " + rentedVehicles.size() + " vehicles");
@@ -84,7 +84,7 @@ public class Main {
 		Collection<User> rentingUsers = vehicle.getRentingUsers();
 		System.out.println("\nVehicle 4 (" + vehicle.getName() + ") is rented by " + rentingUsers.size() + " users");
 		for (User user1 : rentingUsers)
-			System.out.println(user1.getUserName());
+			System.out.println(user1.getName());
 
 
 		session.close();

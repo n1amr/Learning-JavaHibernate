@@ -8,7 +8,7 @@ import java.util.*;
 public class User {
 
 	private int userId;
-	private String userName;
+	private String name;
 	private Date joinedDate;
 	private String description;
 	private Set<Address> addresses = new HashSet<>();
@@ -20,8 +20,8 @@ public class User {
 	public User() {
 	}
 
-	public User(String userName, Date joinedDate) {
-		this.userName = userName;
+	public User(String name, Date joinedDate) {
+		this.name = name;
 		this.joinedDate = joinedDate;
 	}
 
@@ -37,15 +37,16 @@ public class User {
 	}
 
 	@Column(name = "name")
-	public String getUserName() {
-		return userName;
+	public String getName() {
+		return name;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Temporal(TemporalType.DATE)
+	@Column(name = "joined_date")
 	public Date getJoinedDate() {
 		return joinedDate;
 	}
