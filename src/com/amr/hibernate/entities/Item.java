@@ -1,19 +1,18 @@
 package com.amr.hibernate.entities;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name = "amr_vehicles")
-public class Vehicle {
+@Entity(name = "amr_items")
+public class Item {
 	private int id;
 	private String name;
 
-	public Vehicle() {
+	public Item() {
 	}
 
-	public Vehicle(String name) {
+	public Item(String name) {
 		this.name = name;
 	}
 

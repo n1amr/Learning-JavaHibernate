@@ -1,9 +1,7 @@
 package com.amr.hibernate.entities;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 
 @Entity(name = "amr_users")
@@ -14,6 +12,8 @@ public class User {
 	private Date joinedDate;
 	private String description;
 	private Set<Address> addresses = new HashSet<>();
+	private Vehicle vehicle;
+	private Collection<Item> items = new ArrayList<>();
 
 	public User() {
 	}
@@ -27,7 +27,7 @@ public class User {
 
 	@Id
 	@Column(name = "id")
-
+	@GeneratedValue
 	public int getUserId() {
 		return userId;
 	}
@@ -72,5 +72,23 @@ public class User {
 
 	public void setAddresses(Set<Address> addresses) {
 		this.addresses = addresses;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public Vehicle getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL)
+	public Collection<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(Collection<Item> items) {
+		this.items = items;
 	}
 }

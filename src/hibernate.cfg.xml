@@ -63,6 +63,7 @@
 		<!-- Names the annotated entity class -->
 		<mapping class="com.amr.hibernate.entities.User"/>
 		<mapping class="com.amr.hibernate.entities.Vehicle"/>
+		<mapping class="com.amr.hibernate.entities.Item"/>
 
 	</session-factory>
 
