@@ -34,6 +34,7 @@ public class Item {
 	}
 
 	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "owner_user_id")
 	public User getOwner() {
 		return owner;
 	}

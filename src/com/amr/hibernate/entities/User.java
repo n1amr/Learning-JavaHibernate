@@ -82,12 +82,7 @@ public class User {
 		this.vehicle = vehicle;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(
-		name = "amr_users_items",
-		joinColumns = @JoinColumn(name = "user_id"),
-		inverseJoinColumns = @JoinColumn(name = "item_id")
-	)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
 	public Collection<Item> getItems() {
 		return items;
 	}
