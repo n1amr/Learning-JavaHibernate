@@ -36,7 +36,7 @@ public class Vehicle {
 		this.name = name;
 	}
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "rentedVehicles")
 	public Collection<User> getRentingUsers() {
 		return rentingUsers;
 	}
