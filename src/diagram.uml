@@ -3,35 +3,35 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="743.5947643754236" y="147.80585106382978">com.amr.learn.hibernate.entities.Vehicle</node>
-    <node x="336.78499999999997" y="158.67944522648742">com.amr.learn.hibernate.entities.User</node>
-    <node x="737.3713601201043" y="322.88814577212366">com.amr.learn.hibernate.entities.Item</node>
-    <node x="0.0" y="218.67944522648742">com.amr.learn.hibernate.entities.Address</node>
+    <node x="743.5947643754236" y="147.80585106382978">com.n1amr.learn.hibernate.entities.Vehicle</node>
+    <node x="0.0" y="218.67944522648742">com.n1amr.learn.hibernate.entities.Address</node>
+    <node x="737.3713601201043" y="322.88814577212366">com.n1amr.learn.hibernate.entities.Item</node>
+    <node x="336.78499999999997" y="158.67944522648742">com.n1amr.learn.hibernate.entities.User</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="com.amr.learn.hibernate.entities.User" target="com.amr.learn.hibernate.entities.Vehicle">
+    <edge source="com.n1amr.learn.hibernate.entities.User" target="com.n1amr.learn.hibernate.entities.Address">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="com.amr.learn.hibernate.entities.User" target="com.amr.learn.hibernate.entities.Address">
+    <edge source="com.n1amr.learn.hibernate.entities.Item" target="com.n1amr.learn.hibernate.entities.User">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="com.amr.learn.hibernate.entities.Item" target="com.amr.learn.hibernate.entities.User">
+    <edge source="com.n1amr.learn.hibernate.entities.User" target="com.n1amr.learn.hibernate.entities.Vehicle">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="com.amr.learn.hibernate.entities.Vehicle" target="com.amr.learn.hibernate.entities.User">
+    <edge source="com.n1amr.learn.hibernate.entities.Vehicle" target="com.n1amr.learn.hibernate.entities.User">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="com.amr.learn.hibernate.entities.User" target="com.amr.learn.hibernate.entities.Item">
+    <edge source="com.n1amr.learn.hibernate.entities.User" target="com.n1amr.learn.hibernate.entities.Item">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="436.0" y="286.5" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="436.0" y="287.0" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
