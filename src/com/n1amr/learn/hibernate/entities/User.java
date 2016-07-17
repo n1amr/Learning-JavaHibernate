@@ -1,4 +1,4 @@
-package com.amr.learn.hibernate.entities;
+package com.n1amr.learn.hibernate.entities;
 
 import javax.persistence.*;
 import java.util.*;

@@ -4,7 +4,7 @@
     <data-source name="Oracle - @192.168.1.44" uuid="98ace0bd-0ecf-4636-9f3c-34ca4e44781e">
       <secret-storage>master_key</secret-storage>
       <user-name>TEST</user-name>
-      <resolve-scope>*:TEST,PUBLIC</resolve-scope>
+      <resolve-scope>*:PUBLIC,TEST</resolve-scope>
     </data-source>
     <data-source name="MySQL - testdb@localhost" uuid="d7f52cda-87ff-4a99-9c73-2c8963738097">
       <secret-storage>master_key</secret-storage>

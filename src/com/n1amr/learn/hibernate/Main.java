@@ -1,9 +1,9 @@
-package com.amr.learn.hibernate;
+package com.n1amr.learn.hibernate;
 
-import com.amr.learn.hibernate.entities.Address;
-import com.amr.learn.hibernate.entities.Item;
-import com.amr.learn.hibernate.entities.User;
-import com.amr.learn.hibernate.entities.Vehicle;
+import com.n1amr.learn.hibernate.entities.Address;
+import com.n1amr.learn.hibernate.entities.Item;
+import com.n1amr.learn.hibernate.entities.User;
+import com.n1amr.learn.hibernate.entities.Vehicle;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
