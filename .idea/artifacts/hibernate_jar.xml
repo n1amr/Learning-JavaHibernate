@@ -13,6 +13,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jta-1.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/ojdbc6.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/slf4j-api-1.6.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/ehcache-core-2.4.3.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

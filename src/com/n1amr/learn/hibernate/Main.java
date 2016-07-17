@@ -70,8 +70,27 @@ public class Main {
 
 		session.getTransaction().commit();
 		session.close();
-
 		System.out.println("After second get");
+
+		System.out.println("Before first query");
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		printUsersList(session.createQuery("from amr_users user where user.id = 4").setCacheable(true).list());
+
+		session.getTransaction().commit();
+		session.close();
+
+
+		session = sessionFactory.openSession();
+		session.setCacheMode(CacheMode.GET);
+		session.beginTransaction();
+
+		printUsersList(session.createQuery("from amr_users user where user.id = 4").setCacheable(true).list());
+
+		session.getTransaction().commit();
+		session.close();
+		System.out.println("After second query");
 
 
 		session = sessionFactory.openSession();
