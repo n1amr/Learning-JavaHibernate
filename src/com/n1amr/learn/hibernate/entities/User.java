@@ -5,6 +5,7 @@ import java.util.*;
 
 
 @Entity(name = "amr_users")
+@NamedQuery(name = "User.byId", query = "from amr_users where id = ?")
 public class User {
 
 	private int userId;

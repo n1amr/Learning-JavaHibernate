@@ -114,6 +114,15 @@ public class Main {
 			System.out.println(user1.getName());
 		}
 
+		query = session.getNamedQuery("User.byId");
+		query.setInteger(0, 1);
+
+		users = query.list();
+		for (Object o : users) {
+			User user1 = (User) o;
+			System.out.println(user1.getName());
+		}
+
 		session.close();
 	}
 }
