@@ -119,6 +119,7 @@ public class Main {
 		printUsersList(query.list());
 
 		query = session.getNamedQuery("User.byName");
+		//noinspection JpaQueryApiInspection
 		query.setString(0, "Amr Alaa");
 
 		printUsersList(query.list());
