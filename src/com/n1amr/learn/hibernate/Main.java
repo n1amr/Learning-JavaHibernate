@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.Collection;
@@ -110,39 +111,42 @@ public class Main {
 		Query query = session.createQuery("from amr_users where name like ?");
 		query.setString(0, "User%");
 
-		List users = query.list();
-		for (Object o : users) {
-			User user1 = (User) o;
-			System.out.println(user1.getName());
-		}
+		printUsersList(query.list());
 
 		query = session.getNamedQuery("User.byId");
 		query.setInteger(0, 1);
 
-		users = query.list();
-		for (Object o : users) {
-			User user1 = (User) o;
-			System.out.println(user1.getName());
-		}
+		printUsersList(query.list());
 
 		query = session.getNamedQuery("User.byName");
 		query.setString(0, "Amr Alaa");
 
-		users = query.list();
-		for (Object o : users) {
-			User user1 = (User) o;
-			System.out.println(user1.getName());
-		}
+		printUsersList(query.list());
 
 		Criteria criteria = session.createCriteria(User.class);
 		criteria.add(Restrictions.eq("name", "User #3"));
 
-		users = criteria.list();
-		for (Object o : users) {
-			User user1 = (User) o;
-			System.out.println(user1.getName());
-		}
+		printUsersList(criteria.list());
+
+		User exampleUser = new User("User %", new Date(1000L));
+		Example example = Example.create(exampleUser)
+			.enableLike()
+			.excludeProperty("joinedDate");
+
+		criteria = session.createCriteria(User.class)
+			.add(example)
+			.add(Restrictions.ge("userId", 3));
+
+		printUsersList(criteria.list());
+
 
 		session.close();
+	}
+
+	private static void printUsersList(List users) {
+		for (Object o : users) {
+			User user = (User) o;
+			System.out.println("id " + user.getUserId() + ": " + user.getName());
+		}
 	}
 }
