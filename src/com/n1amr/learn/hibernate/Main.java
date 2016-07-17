@@ -1,12 +1,14 @@
 package com.n1amr.learn.hibernate;
 
 import com.n1amr.learn.hibernate.entities.*;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @SuppressWarnings("WeakerAccess")
@@ -99,6 +101,18 @@ public class Main {
 		for (User user1 : rentingUsers)
 			System.out.println(user1.getName());
 
+
+		session.close();
+
+		session = sessionFactory.openSession();
+		Query query = session.createQuery("from amr_users where name like ?");
+		query.setString(0, "User%");
+
+		List users = query.list();
+		for (Object o : users) {
+			User user1 = (User) o;
+			System.out.println(user1.getName());
+		}
 
 		session.close();
 	}
