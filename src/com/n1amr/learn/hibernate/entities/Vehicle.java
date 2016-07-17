@@ -6,11 +6,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 @Entity(name = "amr_vehicles")
-@DiscriminatorColumn(
-	name = "vehicle_type",
-	discriminatorType = DiscriminatorType.STRING
-)
-@DiscriminatorValue(value = "Normal")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Vehicle {
 	private int id;
 	private String name;
