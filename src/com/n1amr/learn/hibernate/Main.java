@@ -135,7 +135,7 @@ public class Main {
 
 		criteria = session.createCriteria(User.class)
 			.add(example)
-			.add(Restrictions.ge("userId", 3));
+			.add(Restrictions.ge("id", 3));
 
 		printUsersList(criteria.list());
 
@@ -146,7 +146,7 @@ public class Main {
 	private static void printUsersList(List users) {
 		for (Object o : users) {
 			User user = (User) o;
-			System.out.println("id " + user.getUserId() + ": " + user.getName());
+			System.out.println("id " + user.getId() + ": " + user.getName());
 		}
 	}
 }

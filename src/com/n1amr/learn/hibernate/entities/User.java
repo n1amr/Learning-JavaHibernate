@@ -9,7 +9,7 @@ import java.util.*;
 @NamedNativeQuery(name = "User.byName", query = "SELECT * FROM amr_users where name = ?", resultClass = User.class)
 public class User {
 
-	private int userId;
+	private int id;
 	private String name;
 	private Date joinedDate;
 	private String description;
@@ -30,12 +30,12 @@ public class User {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.TABLE)
-	public int getUserId() {
-		return userId;
+	public int getId() {
+		return id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Column(name = "name")
