@@ -1,9 +1,6 @@
 package com.n1amr.learn.hibernate;
 
-import com.n1amr.learn.hibernate.entities.Address;
-import com.n1amr.learn.hibernate.entities.Item;
-import com.n1amr.learn.hibernate.entities.User;
-import com.n1amr.learn.hibernate.entities.Vehicle;
+import com.n1amr.learn.hibernate.entities.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -37,6 +34,22 @@ public class Main {
 			vehicle1.getRentingUsers().add(user);
 			user1.getRentedVehicles().add(vehicle1);
 			vehicle1.getRentingUsers().add(user1);
+
+
+			if (i % 2 == 0) {
+				TwoWheeler vehicle2 = new TwoWheeler();
+				vehicle2.setName("Bike #" + i);
+				vehicle2.setWeight(i * 10);
+				user.getRentedVehicles().add(vehicle2);
+				vehicle2.getRentingUsers().add(user);
+			} else {
+				FourWheeler vehicle2 = new FourWheeler();
+				vehicle2.setName("Car #" + i);
+				vehicle2.setSpeed(i * 50);
+				user.getRentedVehicles().add(vehicle2);
+				vehicle2.getRentingUsers().add(user);
+
+			}
 		}
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();

@@ -30,14 +30,6 @@
 
 	<session-factory>
 
-		<!--&lt;!&ndash; Database connection settings &ndash;&gt;-->
-		<!--<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>-->
-		<!--<property name="connection.url">jdbc:oracle:thin:@192.168.1.44:1521:FGO</property>-->
-		<!--<property name="connection.username">TEST</property>-->
-		<!--<property name="connection.password">TEST</property>-->
-
-		<!--&lt;!&ndash; SQL dialect &ndash;&gt;-->
-		<!--<property name="dialect">org.hibernate.dialect.OracleDialect</property>-->
 
 		<!-- Database connection settings -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
@@ -47,6 +39,15 @@
 
 		<!-- SQL dialect -->
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="connection.url">jdbc:oracle:thin:@192.168.1.44:1521:FGO</property>
+		<property name="connection.username">TEST</property>
+		<property name="connection.password">TEST</property>
+
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.OracleDialect</property>
 
 		<!-- JDBC connection pool (use the built-in) -->
 		<property name="connection.pool_size">1</property>
@@ -65,6 +66,8 @@
 		<mapping class="com.n1amr.learn.hibernate.entities.Vehicle"/>
 		<mapping class="com.n1amr.learn.hibernate.entities.Item"/>
 		<mapping class="com.n1amr.learn.hibernate.entities.Address"/>
+		<mapping class="com.n1amr.learn.hibernate.entities.TwoWheeler"/>
+		<mapping class="com.n1amr.learn.hibernate.entities.FourWheeler"/>
 
 	</session-factory>
 
