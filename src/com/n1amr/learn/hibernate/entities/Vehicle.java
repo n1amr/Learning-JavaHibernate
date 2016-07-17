@@ -1,12 +1,19 @@
 package com.n1amr.learn.hibernate.entities;
 
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cache;
+
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import java.util.Collection;
 import java.util.HashSet;
 
 @Entity(name = "amr_vehicles")
 @Inheritance(strategy = InheritanceType.JOINED)
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Vehicle {
 	private int id;
 	private String name;

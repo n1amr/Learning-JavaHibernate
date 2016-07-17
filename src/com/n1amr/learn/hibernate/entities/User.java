@@ -1,12 +1,21 @@
 package com.n1amr.learn.hibernate.entities;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cache;
+
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQuery;
 import java.util.*;
 
 
 @Entity(name = "amr_users")
 @NamedQuery(name = "User.byId", query = "from amr_users where id = ?")
 @NamedNativeQuery(name = "User.byName", query = "SELECT * FROM amr_users where name = ?", resultClass = User.class)
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class User {
 
 	private int id;

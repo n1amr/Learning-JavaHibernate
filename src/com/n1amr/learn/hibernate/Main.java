@@ -1,10 +1,7 @@
 package com.n1amr.learn.hibernate;
 
 import com.n1amr.learn.hibernate.entities.*;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
@@ -13,6 +10,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+
 
 @SuppressWarnings("WeakerAccess")
 public class Main {
@@ -58,7 +56,31 @@ public class Main {
 		}
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		Session session = sessionFactory.openSession();
+		Session session;
+
+		System.out.println("Before first get");
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		User user_cache1 = (User) session.get(User.class, 3);
+
+		session.getTransaction().commit();
+		session.close();
+
+
+		session = sessionFactory.openSession();
+		session.setCacheMode(CacheMode.GET);
+		session.beginTransaction();
+
+		User user_cache2 = (User) session.get(User.class, 3);
+
+		session.getTransaction().commit();
+		session.close();
+
+		System.out.println("After second get");
+
+
+		session = sessionFactory.openSession();
 		session.beginTransaction();
 
 		session.save(user);
