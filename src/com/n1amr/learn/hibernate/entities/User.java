@@ -6,6 +6,7 @@ import java.util.*;
 
 @Entity(name = "amr_users")
 @NamedQuery(name = "User.byId", query = "from amr_users where id = ?")
+@NamedNativeQuery(name = "User.byName", query = "SELECT * FROM amr_users where name = ?", resultClass = User.class)
 public class User {
 
 	private int userId;
