@@ -2,7 +2,7 @@ package com.n1amr.learn.hibernate.entities;
 
 import javax.persistence.Entity;
 
-@Entity(name = "amr_vehicle_twowheeler")
+@Entity(name = "amr_vehicle_two_wheeler")
 public class TwoWheeler extends Vehicle {
 	private int weight;
 
