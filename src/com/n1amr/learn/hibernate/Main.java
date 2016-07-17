@@ -38,21 +38,15 @@ public class Main {
 			user1.getRentedVehicles().add(vehicle1);
 			vehicle1.getRentingUsers().add(user1);
 
+			Vehicle vehicle2;
+			if (i % 2 == 0)
+				vehicle2 = new TwoWheeler("Bike #" + i, i * 10);
+			else
+				vehicle2 = new FourWheeler("Car #" + i, i * 50);
 
-			if (i % 2 == 0) {
-				TwoWheeler vehicle2 = new TwoWheeler();
-				vehicle2.setName("Bike #" + i);
-				vehicle2.setWeight(i * 10);
-				user.getRentedVehicles().add(vehicle2);
-				vehicle2.getRentingUsers().add(user);
-			} else {
-				FourWheeler vehicle2 = new FourWheeler();
-				vehicle2.setName("Car #" + i);
-				vehicle2.setSpeed(i * 50);
-				user.getRentedVehicles().add(vehicle2);
-				vehicle2.getRentingUsers().add(user);
+			user.getRentedVehicles().add(vehicle2);
+			vehicle2.getRentingUsers().add(user);
 
-			}
 		}
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -62,7 +56,7 @@ public class Main {
 		session = sessionFactory.openSession();
 		session.beginTransaction();
 
-		User user_cache1 = (User) session.get(User.class, 3);
+		session.get(User.class, 3);
 
 		session.getTransaction().commit();
 		session.close();
@@ -72,7 +66,7 @@ public class Main {
 		session.setCacheMode(CacheMode.GET);
 		session.beginTransaction();
 
-		User user_cache2 = (User) session.get(User.class, 3);
+		session.get(User.class, 3);
 
 		session.getTransaction().commit();
 		session.close();

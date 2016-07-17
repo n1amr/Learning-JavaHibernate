@@ -6,6 +6,14 @@ import javax.persistence.Entity;
 public class FourWheeler extends Vehicle {
 	private int speed;
 
+	public FourWheeler() {
+	}
+
+	public FourWheeler(String name, int speed) {
+		super(name);
+		this.speed = speed;
+	}
+
 	public int getSpeed() {
 		return speed;
 	}
