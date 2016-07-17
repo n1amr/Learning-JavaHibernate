@@ -1,10 +1,12 @@
 package com.n1amr.learn.hibernate;
 
 import com.n1amr.learn.hibernate.entities.*;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.Collection;
 import java.util.Date;
@@ -127,6 +129,15 @@ public class Main {
 		query.setString(0, "Amr Alaa");
 
 		users = query.list();
+		for (Object o : users) {
+			User user1 = (User) o;
+			System.out.println(user1.getName());
+		}
+
+		Criteria criteria = session.createCriteria(User.class);
+		criteria.add(Restrictions.eq("name", "User #3"));
+
+		users = criteria.list();
 		for (Object o : users) {
 			User user1 = (User) o;
 			System.out.println(user1.getName());
